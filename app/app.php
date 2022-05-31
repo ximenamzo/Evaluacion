@@ -105,6 +105,7 @@ if($gl){
 
     exit();
 }
+//--------------------------------------------
 
 $cp = in_array('cap',array_keys($_GET));
 
@@ -118,9 +119,13 @@ if($cp){
     $response = $cap -> realizarCalculos();
 
     echo $response; 
+    //print_r($cp->response);
 
     exit();
 }
+
+//--------------------------------------------
+
 
 $pc = in_array('pac',array_keys($_GET));
 

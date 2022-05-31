@@ -116,61 +116,14 @@ const app = {
             body: datos
         }).then(response => response.json())
         .then( res=>{
-            let html = "";
-            switch(this.option.value){
-                case "1" : html = `
-                    <b>Celsius = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-                case "2" : html = `
-                    <b>Fahrenheit = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-                case "3" : html = `
-                    <b>Libras = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-                case "4" : html = `
-                    <b>Kilogramos = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-                case "5" : html = `
-                    <b>Galones = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-                case "6" : html = `
-                    <b>Litros = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-//-----------------------------------------------------------------------
+            let html = `
+            <b>Conversion = </b>&nbsp;<u>${res.c}</u><br>
+            `;
+            this.resultado.innerHTML = html;
 
-                case "7" : 
-                html = `
-                    <b>Pulgadas = </b>&nbsp;<u>${res.c}</u><br>
-                    `;
-                    break; //print
-
-                    //<b>===== Tabla ======</b><br>
-                    //<b>Centímetros &nbsp; &nbsp; &nbsp; &nbsp; Pulgadas</b><br>
-                    //${centimetro}<u>&nbsp;&nbsp;&nbsp;&nbsp;${res.c}</u><br>
-                    //${centimetro}<u>&nbsp;&nbsp;&nbsp;&nbsp;${res.c[i]}</u><br>
-                    //${centimetro}<u>&nbsp;&nbsp;&nbsp;&nbsp;${res.c+1}</u><br></br>
-
-                    //html +`
-                    //${centimetro}<u>&nbsp;&nbsp;&nbsp;&nbsp;${res.c}</u><br>
-                    //${centimetro}<u>&nbsp;&nbsp;&nbsp;&nbsp;${res.c[i]}</u><br>
-                    //${centimetro}<u>&nbsp;&nbsp;&nbsp;&nbsp;${res.c+1}</u><br>
-                    //`;
-
-//-----------------------------------------------------------------------
-                case "8" : html = `
-                    <b>Centímetros = </b>&nbsp;<u>${res.c}</u><br>
-                    `;break;
-            }
-            this.resultado.innerHTML = html + `<button class="btn btn-primary" onclick='limpiar_resultado()'>Limpiar</button> `;
         }).catch(err => console.error(err));
     }
 };
-
-
-function limpiar_resultado(){
-    app.form.reset();
-    app.resultado.innerHTML="";
-}
 
 window.onload = function(){
     app.option.addEventListener("change", ()=>app.prepararFormulario()); 
