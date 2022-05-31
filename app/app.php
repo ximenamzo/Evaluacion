@@ -28,7 +28,7 @@ if($fc){
 
 $cf = in_array('caf',array_keys($_GET));
 
-if($fc){
+if($cf){
     $datos = $_POST;
 
     $celsius  = $datos['c'];
