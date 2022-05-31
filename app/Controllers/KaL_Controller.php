@@ -6,14 +6,13 @@ class KaL_Controller extends UnitConversionController {
 
     private $kilogramo = 0;
 
-    public function __construct($kilo){
-        $this->kilogramo = $kilo;
+    public function __construct($k){
+        $this->kilogramo = $k;
     }
 
     public function calcularConversion(){
-        $this->conversion = $this->kilo * 2.205;
+        $this->conversion = $this->kilogramo * 2.20462;
     }
-
 }
 
 ?>
